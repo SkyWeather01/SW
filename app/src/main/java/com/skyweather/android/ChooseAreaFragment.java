@@ -1,7 +1,7 @@
 package com.skyweather.android;
 
 // import android.content.Intent;
-import andriod.app.Parcelable;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ import com.skyweather.android.databinding.ChooseAreaBinding;
 import com.skyweather.android.db.City;
 import com.skyweather.android.db.County;
 import com.skyweather.android.db.Province;
-import com.skyweather.android.util.HttpUtil;
+import com.skyweather.android.util.httpUtil;
 import com.skyweather.android.util.Utility;
 
 import org.jetbrains.annotations.NotNull;
@@ -128,7 +128,7 @@ public class ChooseAreaFragment extends Fragment {
 
     private void queryFromServer(String address, String type) {
         showProgressDialog();
-        HttpUtil.sendOkHttpRequest(address, new Callback() {
+        httpUtil.sendOkHttpRequest(address, new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
                 getActivity().runOnUiThread(()->{
@@ -149,7 +149,7 @@ public class ChooseAreaFragment extends Fragment {
                 }
                 if (result){
                     getActivity().runOnUiThread(()->{
-                        if (PROVINCE.equals(type)) {
+                        if ("province".equals(type)) {
                             queryProvinces();
                         }else if ("ciyt".equals(type)){
                             queryCities();
@@ -203,7 +203,7 @@ public class ChooseAreaFragment extends Fragment {
 
     private void queryCounties() {
 
-        binding.titleText.setText(selectedProvince.getCityName());
+        binding.titleText.setText(selectedCity.getCityName());
 
         binding.backButton.setVisibility(View.VISIBLE);
 

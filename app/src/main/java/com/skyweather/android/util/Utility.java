@@ -3,8 +3,12 @@ package com.skyweather.android.util;
 import android.text.TextUtils;
 
 import com.google.gson.JsonArray;
+import com.skyweather.android.db.City;
+import com.skyweather.android.db.County;
+import com.skyweather.android.db.Province;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Utility {
     public static boolean handleProvinceResp(String jsonStr){
@@ -46,8 +50,8 @@ public class Utility {
             }catch (Exception e){
                 e.printStackTrace();
             }
-        }
-    }return false;
+        }return false;
+    }
 
 
     public static boolean handleCountyResp(String jsonStr,int cityId){

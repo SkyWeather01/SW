@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    andrid:backgroud="#fff">
+    android:backgroud="#fff">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?att/colorPrimary">
+        android:background="?attr/colorPrimary">
 
         <TextView
             android:id="@+id/title_text"
